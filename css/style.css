@@ -13,7 +13,42 @@ header {
     /*отдельно для header делаем больше отступов*/
     padding: 200px 0;
 }
-
+/*кнопка menu*/
+.burger {
+    border-radius: 5px;
+    background-color:#ffffff;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center; /*чтобы черточки span были по центру*/
+    flex-direction: column;
+    border: solid 1px black;
+    display: flex;
+    margin-left: 100px;
+    box-shadow: 2px 2px 5px 0 rgba(50, 50, 50, 0.75);
+            }
+            .burger:hover {
+                cursor: pointer;
+            }
+     .burger span { /*черточки внутри кнопки*/
+    transition: all 0.3s;
+    height: 3px;
+    background-color: #000000;
+    display: block;
+    width: 30px;
+    margin: 3px;
+            }
+                        .first {
+                transform: translate(6px, -2px) rotate(45deg);
+                transform-origin: left top;
+                        }
+                        .middle {
+                transform: scale(0);/* уменьшаем полоску, так каак она нам не нужна*/ 
+                        }
+                        .bottom {
+                transform: translate(-3px, -21px) rotate(-45deg);
+                transform-origin: right bottom;
+                        }
 
 header,
 footer {
@@ -38,7 +73,7 @@ footer {
     justify-content: center;
     /*с помощью х строк выравниваем содержимое внутри, посередине, вертикали и горизонтали*/
     align-items: center;
-    cursor: pointer;
+    cursor: pointer; /*при наведении на кнопку смена курсора на указале, для пониамния, что это кнопка*/
     margin: 30px auto;
     /*выравниваем эелемен посредине экрана*/
     transition: all 0.9s ease;
@@ -70,13 +105,18 @@ footer {
     margin: 0 auto;
     padding: 8px 30px;
     border-width: 0 auto;
+    cursor: pointer;
     color: var(--bs-white);
     background-color: var(--color2);
 }
-
+.btn-itd:hover {
+    /*замена цвета при наведении*/
+    background-color: var(--color1);
+}
 .card {
     text-align: center;
 }
+
 /*alt+shift+f чтоб код выглядел красиво*/
 .embed-container {
     position: relative;
