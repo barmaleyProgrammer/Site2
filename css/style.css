@@ -13,7 +13,22 @@ header {
     /*отдельно для header делаем больше отступов*/
     padding: 200px 0;
 }
+
 /*кнопка menu*/
+.menu.active {
+    transform: translateX(-100%);
+}
+.menu {
+    transform: translateX(0);
+}
+.menu.li {
+	list-style-type: none;/*убрать точечки  слева от текста*/
+    color: #000;
+}
+    a {
+color: #000;
+    }
+
 .burger {
     border-radius: 5px;
     background-color:#ffffff;
@@ -24,7 +39,7 @@ header {
     flex-direction: column;
     border: solid 1px black;
     display: flex;
-    margin-left: 100px;
+    margin-left: 200px;
     box-shadow: 2px 2px 5px 0 rgba(50, 50, 50, 0.75);
             }
             .burger:hover {
@@ -206,7 +221,7 @@ background-color: var(--color2)
     max-width: 260px;
 }
 .itd_saban {
-    max-width: 250px;
+    max-width: 400px;
     }
     /*подвал*/
     footer {
