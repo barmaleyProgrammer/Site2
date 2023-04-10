@@ -1,3 +1,6 @@
+<?php
+include('./db.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,51 +56,21 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-4 col-md-6 col-sm-12">
-                    <div class="itd_circle"><i class="icon-emo-grin"></i></div>
-                        <h5 class="text-center">структура</h5>
-                        <div class="line"></div>
-                    </div>
-                <div class="col-xl-4 col-md-6 col-sm-12">
-                            <div class="itd_circle"><i class="icon-emo-grin"></i></div>
-                               <h5 class="text-center">ціна</h5>
-                                <div class="line"></div>
-                            </div>
-                        <div class="col-xl-4 col-md-6 col-sm-12">
-                             <div class="itd_circle"><i class="icon-emo-grin"></i></div>
-                                <h5 class="text-center">актуальність</h5>
-                                    <div class="line"></div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <div class="itd_circle"><i class="icon-emo-grin"></i></div>
-                                    <h5 class="text-center">уроки и завдання</h5>
-                                <div class="line"></div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <div class="itd_circle"><i class="icon-emo-grin"></i></div>
-                                    <h5 class="text-center">відео про курс</h5>
-                                    <div class="line"></div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="itd_circle"><i class="icon-emo-grin"></i></div>
-                                        <h5 class="text-center">огляд з смартфона</h5>
-                                        <div class="line"></div>
-                                    </div>
-                                        <div class="col-xl-4 col-md-6 col-sm-12">
-                                            <div class="itd_circle"><i class="icon-emo-grin"></i></div>
-                                            <h5 class="text-center">корисні матеріали</h5>
-                                            <div class="line"></div>
-                                        </div>
-                                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                                <div class="itd_circle"><i class="icon-emo-grin"></i></div>
-                                                    <h5 class="text-center">відсутність реклами</h5>
-                                                <div class="line"></div>
-                                            </div>
-                                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                                <div class="itd_circle"><i class="icon-emo-grin"></i></div>
-                                                    <h5 class="text-center">курс доступний у вайбері</h5>
-                                                <div class="line"></div>
-                                            </div>
+<?php
+$result = mysqli_query(
+    mysql: $conn,
+    query: 'SELECT id, name FROM pages ORDER BY name ASC LIMIT 9 OFFSET 0;'
+);
+
+while ($row = mysqli_fetch_assoc($result)) {
+    echo '
+    <div class="col-xl-4 col-md-6 col-sm-12">
+        <div class="itd_circle"><i class="icon-emo-grin"></i></div>
+        <h5 class="text-center">'.$row['name'].'</h5>
+        <div class="line"></div>
+    </div>';
+}
+?>
             </div>
         </div>
     </section>
@@ -399,6 +372,23 @@
 <!--здесь указываем ссылку сгенерированной кнопки оплаты-->
             <p>После того, как нажмете отправить, на сл стр заполните поля. Номер телефона</p>
         </div>
+        <form action="send.php" method="post">
+        <h1>Форма обратной связи</h1>
+    <p>
+        <label for="email">Почта</label><br>
+        <input type="email" name="email" id="email" placeholder="введіть email" required/>
+    </p>
+    <p>
+        <label for="name">name</label><br>
+        <input type="text" name="name" id="name" placeholder="input name" required/>
+    </p>
+    <p>
+        <label for="message">message</label><br>
+        <textarea id="message" name="message" rows="10" cols="40" placeholder="input text"></textarea>
+    </p>
+        <!--<button type="submit">send</button>-->
+        <input type="submit" value="send form">
+    </form>
     </div>
 </div>
 <section>
