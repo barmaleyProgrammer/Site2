@@ -6,3 +6,5 @@ $result = mysqli_query(
     mysql: $conn,
     query: $sql
 );
+
+header('location: ./index.php');
