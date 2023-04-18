@@ -59,7 +59,7 @@ include('./db.php');
 <?php
 $result = mysqli_query(
     mysql: $conn,
-    query: 'SELECT id, name FROM pages ORDER BY name ASC LIMIT 9 OFFSET 0;'
+    query: 'SELECT id, name FROM pages ORDER BY id ASC LIMIT 9 OFFSET 0;'
 );
 
 while ($row = mysqli_fetch_assoc($result)) {
